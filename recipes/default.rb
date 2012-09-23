@@ -14,3 +14,7 @@ script "revealcloud_install" do
   not_if { File.exists?('/etc/init.d/revealcloud') }
 end
 
+service "revealcloud" do
+  supports :start => true, :stop => true, :restart => true
+  action [ :enable, :start ]
+end
